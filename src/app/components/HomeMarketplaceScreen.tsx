@@ -10,6 +10,7 @@ import BentoFeatures from './BentoFeatures';
 import MapSection from './MapSection';
 import SkillCards from './SkillCards';
 import HireModal from '@/components/HireModal';
+import ContactSection from './ContactSection';
 
 export default function HomeMarketplaceScreen() {
   const [loading, setLoading] = useState(true);
@@ -29,6 +30,7 @@ export default function HomeMarketplaceScreen() {
         <BentoFeatures />
         <MapSection />
         <SkillCards />
+        <ContactSection />
       </main>
       <MobileBottomNav activePath="/" />
       <HireModal />

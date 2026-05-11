@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Bell, Search, Menu, X, Sun, Moon, MapPin, Zap } from 'lucide-react';
+import { Bell, Search, Menu, X, Sun, Moon, MapPin, Zap, LogIn } from 'lucide-react';
 import AppLogo from '@/components/ui/AppLogo';
 import { useApp } from '@/context/AppContext';
 import NotificationPanel from './NotificationPanel';
@@ -130,6 +130,17 @@ export default function Navbar({ activePath }: NavbarProps) {
               >
                 {mobileOpen ? <X size={18} /> : <Menu size={18} />}
               </motion.button>
+
+              {/* Login Button */}
+              <Link
+                href="/login"
+                className={`hidden lg:flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-600 transition-all duration-200 ${
+                  activePath === '/login' ?'bg-primary/15 text-primary neon-glow-cyan' :'btn-primary'
+                }`}
+              >
+                <LogIn size={15} />
+                Login
+              </Link>
             </div>
           </div>
         </div>
@@ -170,6 +181,15 @@ export default function Navbar({ activePath }: NavbarProps) {
                     {link.label}
                   </Link>
                 ))}
+                {/* Mobile Login */}
+                <Link
+                  href="/login"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-600 btn-primary mt-1"
+                >
+                  <LogIn size={16} />
+                  Login / Sign Up
+                </Link>
               </div>
             </motion.div>
           )}
